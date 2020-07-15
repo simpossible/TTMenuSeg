@@ -43,6 +43,13 @@
     return self;
 }
 
+- (TTMenuSegItem *)itemAtIndex:(NSInteger)i {
+    if (self.items.count > i) {
+        return [self.items objectAtIndex:i];
+    }
+    return nil;
+}
+
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     [self initialUI];

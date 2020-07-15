@@ -46,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)ttDefaultSegWithStrings:(NSArray<NSString *> *)items;
 
+- (TTMenuSegItem *)itemAtIndex:(NSInteger)i;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
