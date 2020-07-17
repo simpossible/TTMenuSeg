@@ -20,6 +20,8 @@
 		266C6D9E24BEE0C4008630BE /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D9D24BEE0C4008630BE /* TTMenuSegItem.m */; };
 		266C6DA124BEE257008630BE /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6DA024BEE257008630BE /* TTMenuSegView.m */; };
 		266C6DA424BF1213008630BE /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6DA324BF1213008630BE /* TTMenuSegLabel.m */; };
+		2675EB7924C14737003C0246 /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2675EB7824C14737003C0246 /* TTMenuSegDecrator.m */; };
+		2675EB7F24C16317003C0246 /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2675EB7E24C16317003C0246 /* TTMenuSegLabelDecrator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,11 @@
 		266C6DA024BEE257008630BE /* TTMenuSegView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegView.m; sourceTree = "<group>"; };
 		266C6DA224BF1213008630BE /* TTMenuSegLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabel.h; sourceTree = "<group>"; };
 		266C6DA324BF1213008630BE /* TTMenuSegLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabel.m; sourceTree = "<group>"; };
+		2675EB7724C14737003C0246 /* TTMenuSegDecrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegDecrator.h; sourceTree = "<group>"; };
+		2675EB7824C14737003C0246 /* TTMenuSegDecrator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegDecrator.m; sourceTree = "<group>"; };
+		2675EB7A24C14A31003C0246 /* TTMenuSegHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegHeader.h; sourceTree = "<group>"; };
+		2675EB7D24C16317003C0246 /* TTMenuSegLabelDecrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabelDecrator.h; sourceTree = "<group>"; };
+		2675EB7E24C16317003C0246 /* TTMenuSegLabelDecrator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabelDecrator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +138,15 @@
 				266C6D9A24BEE061008630BE /* TTMenuSeg.m */,
 				266C6D9C24BEE0C4008630BE /* TTMenuSegItem.h */,
 				266C6D9D24BEE0C4008630BE /* TTMenuSegItem.m */,
+				2675EB7A24C14A31003C0246 /* TTMenuSegHeader.h */,
 				266C6D9F24BEE257008630BE /* TTMenuSegView.h */,
 				266C6DA024BEE257008630BE /* TTMenuSegView.m */,
 				266C6DA224BF1213008630BE /* TTMenuSegLabel.h */,
 				266C6DA324BF1213008630BE /* TTMenuSegLabel.m */,
+				2675EB7724C14737003C0246 /* TTMenuSegDecrator.h */,
+				2675EB7824C14737003C0246 /* TTMenuSegDecrator.m */,
+				2675EB7D24C16317003C0246 /* TTMenuSegLabelDecrator.h */,
+				2675EB7E24C16317003C0246 /* TTMenuSegLabelDecrator.m */,
 			);
 			path = TTMenuSeg;
 			sourceTree = "<group>";
@@ -289,12 +301,14 @@
 			files = (
 				266C6D6C24BEE04F008630BE /* ViewController.m in Sources */,
 				266C6D9E24BEE0C4008630BE /* TTMenuSegItem.m in Sources */,
+				2675EB7924C14737003C0246 /* TTMenuSegDecrator.m in Sources */,
 				266C6D6624BEE04F008630BE /* AppDelegate.m in Sources */,
 				266C6D9B24BEE061008630BE /* TTMenuSeg.m in Sources */,
 				266C6D7724BEE050008630BE /* main.m in Sources */,
 				266C6DA124BEE257008630BE /* TTMenuSegView.m in Sources */,
 				266C6D6924BEE04F008630BE /* SceneDelegate.m in Sources */,
 				266C6DA424BF1213008630BE /* TTMenuSegLabel.m in Sources */,
+				2675EB7F24C16317003C0246 /* TTMenuSegLabelDecrator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS98J4RYQ2;
 				INFOPLIST_FILE = TTMenuSeg/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS98J4RYQ2;
 				INFOPLIST_FILE = TTMenuSeg/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

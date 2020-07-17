@@ -51,13 +51,14 @@
     self.containerView.frame =self.bounds;
     
     self.label.frame = CGRectMake(0, 0, self.segItem.selectedSize.width, self.segItem.selectedSize.height);
+    self.label.contentMode = UIViewContentModeScaleToFill;
 }
 
 
 - (void)setDegreeSize:(CGFloat)widthDegree height:(CGFloat)heightDegree {
     self.label.transform = CGAffineTransformMakeScale(widthDegree, heightDegree);
 //    self.label.transform = CGAffineTransformMake(widthDegree, 0, 0, heightDegree, 0, 0);
-    self.label.contentMode = UIViewContentModeScaleToFill;
+    
     self.label.frame = self.containerView.bounds;
 }
 

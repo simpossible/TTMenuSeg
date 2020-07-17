@@ -30,6 +30,7 @@
 @implementation TTMenuSeg
 
 
+
 - (instancetype)initWithItems:(NSArray<TTMenuSegItem *> *)items {
     if (self = [super init]) {
         _shouldReciveScroll = YES;
@@ -175,4 +176,7 @@
     return 0;
 }
 
+- (void)addSubview:(UIView *)view {
+    [super addSubview:view];
+}
 @end

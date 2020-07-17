@@ -8,13 +8,8 @@
 
 #import "TTMenuSegItem.h"
 
-typedef struct{
-    CGFloat r;
-    CGFloat g;
-    CGFloat b;
-    CGFloat a;
-    
-} TTMenuSegColor;
+#import "TTMenuSegHeader.h"
+#import "TTMenuSeg.h"
 
 @interface TTMenuSegItem()
 
@@ -44,6 +39,9 @@ typedef struct{
 
 @property (nonatomic, assign) NSInteger index;
 
+/**所有的装饰器*/
+@property (nonatomic, strong) NSMutableArray * allDecorators;
+
 @end
 
 @implementation TTMenuSegItem
@@ -52,6 +50,7 @@ typedef struct{
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.allDecorators = [NSMutableArray array];
         self.degree = 0;
         self.inset = UIEdgeInsetsMake(0, 6, 0, 6);
         _sColor.r = 0.12;
@@ -102,6 +101,7 @@ typedef struct{
         [self.delegate setFrame:frame];
         [self.delegate setDegreeSize:(_widthDegree + (_degree * (1-_widthDegree))) height:(_heightDegree + (_degree * (1-_heightDegree)))];
         self.lastFrame = frame;
+        [self caculateDecorators];
        
         [self.nextItem layOutWithX:startX forceUpdate:force];
          [_delegate setTitleColor:[self currentColor]];
@@ -112,6 +112,15 @@ typedef struct{
     }
 }
 
+- (void)caculateDecorators {
+    for (TTMenuSegDecrator *dec in self.allDecorators) {
+        if (!dec.superview) {
+            [self.seger addSubView:dec];
+        }
+        [dec caculateFrameWithOrg:_lastFrame degree:_degree];
+        
+    }
+}
 
 - (void)dealForOutOff:(CGFloat)off {
     if ([self isOffMyDeal:off]) {
@@ -196,6 +205,7 @@ typedef struct{
         [self.delegate setFrame:frame];
         [self.delegate setDegreeSize:(_widthDegree + (_degree * (1-_widthDegree))) height:(_heightDegree + (_degree * (1-_heightDegree)))];
         self.lastFrame = frame;
+        [self caculateDecorators];
         [_delegate setTitleColor:[self currentColor]];
     }
     if (forward) {
@@ -287,5 +297,17 @@ typedef struct{
     _offColor.g = _sColor.g - _dColor.g;
     _offColor.b = _sColor.b - _dColor.b;
     _offColor.a = _sColor.a - _dColor.a;
+}
+
+- (void)addDecrator:(TTMenuSegDecrator *)decrator {
+    if (self.seger) {
+        if ([self.seger respondsToSelector:@selector(addSubview:)]) {
+            TTMenuSeg *se = self.seger;
+            [se addSubview:decrator];
+        }else {
+            NSLog(@"what happen");
+        }
+    }
+    [self.allDecorators addObject:decrator];
 }
 @end

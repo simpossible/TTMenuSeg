@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TTMenuSegDecrator.h"
+
 
 @class TTMenuSegItem;
 @protocol TTMenuSegItemProtocol <NSObject>
@@ -32,6 +34,8 @@
 - (CGFloat)indicatorWidthMin;
 
 - (void)ttMenuSegItemSelected:(TTMenuSegItem *)item;
+
+- (void)addSubView:(UIView *)view;
 
 @end
 
@@ -94,6 +98,9 @@
 
 /**外部的起点*/
 @property (nonatomic, assign) CGFloat expectOutOff;
+
+
+- (void)addDecrator:(TTMenuSegDecrator *)decrator;
 
 - (void)initialSizes;
 
