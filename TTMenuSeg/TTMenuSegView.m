@@ -77,4 +77,8 @@
     [self.segItem.seger ttMenuSegItemSelected:self.segItem];
 }
 
+- (void)setTitleColor:(UIColor *)color {
+    self.label.textColor = color;
+}
+
 @end

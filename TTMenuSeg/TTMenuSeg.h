@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (TTMenuSegItem *)itemAtIndex:(NSInteger)i;
 
+- (NSInteger)selectedIndex;
+
 
 @end
 

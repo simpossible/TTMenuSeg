@@ -16,6 +16,8 @@
 /**title 需要被放大缩小的背书*/
 - (void)setDegreeSize:(CGFloat)widthDegree height:(CGFloat)heightDegree;
 
+- (void)setTitleColor:(UIColor *)color;
+
 @end
 
 @protocol TTMenuSegItemSeger <NSObject>
@@ -54,6 +56,8 @@
 
 @property (nonatomic, weak) TTMenuSegItem * preItem;
 
+@property (nonatomic, assign, readonly) NSInteger index;
+
 @property (nonatomic, assign) CGFloat startX;
 
 /**允许用户传入上下文对象*/
@@ -71,6 +75,10 @@
 @property (nonatomic, assign, readonly) CGSize selectedSize;
 
 @property (nonatomic, assign, readonly) CGSize defaultSize;
+
+- (void)setSelectedColor:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a;
+
+- (void)setDefaultColor:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a;
 
 /** 从 defaul 到 select 的进度 0 - 1 */
 @property (nonatomic, assign) CGFloat degree;

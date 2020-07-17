@@ -165,4 +165,14 @@
     return seg;
 }
 
+- (NSInteger)selectedIndex {
+    for (int i = 0; i <self.items.count; i ++) {
+        TTMenuSegItem *item = [self.items objectAtIndex:i];
+        if ([item isOffMyDeal:self.currentOff]) {
+            return i;;
+        }
+    }
+    return 0;
+}
+
 @end
