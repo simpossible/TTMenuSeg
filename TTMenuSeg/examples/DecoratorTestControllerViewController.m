@@ -1,46 +1,52 @@
 //
-//  SimpleUseController.m
+//  DecoratorTestControllerViewController.m
 //  TTMenuSeg
 //
 //  Created by simp on 2020/7/22.
 //  Copyright © 2020 simp. All rights reserved.
 //
 
-#import "SimpleUseController.h"
-
+#import "DecoratorTestControllerViewController.h"
 #import "TTMenuSeg.h"
 #import "TTMenuSegLabelDecrator.h"
 
-
-@interface SimpleUseController ()<UIScrollViewDelegate,TTMenuSegDelegate>
+@interface DecoratorTestControllerViewController ()
 
 @property (nonatomic, strong) TTMenuSeg * segs;
 
 @property (nonatomic, strong) UIScrollView * scrollView;
 
+
 @end
 
-@implementation SimpleUseController
+@implementation DecoratorTestControllerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 500)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 500)];
     [self.view addSubview:self.scrollView];
     
     self.scrollView.delegate = self;
     self.scrollView.contentSize = CGSizeMake(1000, 500);
     
-    self.title = @"基础使用";
+    TTMenuSegLabelDecrator *dec = [[TTMenuSegLabelDecrator alloc] init];
+    dec.postion = CGPointMake(1, 0.5);
+    dec.fontName = @"PingFangSC-Regular";
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    dec.selectFontSize = 12;
+    dec.defaultFontSize = 10;
+    dec.content = @"哇哈哈";
+    
+    
+    
     TTMenuSegItem *item = [[TTMenuSegItem alloc] init];
     item.fontName = @"PingFangSC-Semibold";
     item.selectFontSize = 24;
     item.defaultFontSize = 16;
     item.title = @"推荐";
     item.outWidth = 300;
-    item.inset = UIEdgeInsetsMake(0, 6, 0, 6);
+    item.inset = UIEdgeInsetsMake(0, 6, 0, 20);
     
     UIView *v = [[UIView alloc] init];
     v.frame = CGRectMake(0, 0, 300, 300);
@@ -84,9 +90,10 @@
     
     self.segs = [[TTMenuSeg alloc] initWithItems:@[item,item1,item2,item3]];
     //    self.segs = [TTMenuSeg ttDefaultSegWithStrings:@[@"推荐",@"热门",@"最新"]];
-    self.segs.frame = CGRectMake(0,0, self.view.bounds.size.width, 64);
+    self.segs.frame = CGRectMake(0,146, self.view.bounds.size.width, 64);
     
     [self.view addSubview:self.segs];
+    [item addDecrator:dec];
     
     self.segs.backgroundColor = [UIColor orangeColor];
     self.segs.delegate = self;
@@ -101,6 +108,7 @@
 - (void)ttMenuSegItemSelected:(TTMenuSegItem *)item {
     [self.scrollView setContentOffset:(CGPointMake(item.expectOutOff, 0))];
 }
+
 /*
 #pragma mark - Navigation
 

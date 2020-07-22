@@ -10,10 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef NS_ENUM(NSUInteger,TTMenuSeqFunType) {
+    TTMenuSeqFunTypeBase,
+    TTMenuSeqFunTypeDecorater,
+    TTMenuSeqFunTypeCount
+};
+
 @interface TTMenuSeqTestCell : UITableViewCell
 
 
-@property (nonatomic, assign) NSUInteger funcType;
+@property (nonatomic, assign) TTMenuSeqFunType funcType;
 
 @end
 

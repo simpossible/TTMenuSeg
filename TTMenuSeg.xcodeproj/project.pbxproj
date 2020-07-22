@@ -16,6 +16,7 @@
 		266C6D7724BEE050008630BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D7624BEE050008630BE /* main.m */; };
 		266C6D8124BEE051008630BE /* TTMenuSegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8024BEE051008630BE /* TTMenuSegTests.m */; };
 		266C6D8C24BEE051008630BE /* TTMenuSegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8B24BEE051008630BE /* TTMenuSegUITests.m */; };
+		26AD06A124C84F4700E220BE /* DecoratorTestControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD06A024C84F4700E220BE /* DecoratorTestControllerViewController.m */; };
 		26EEC8A424C80A020093A77E /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
 		26EEC8A624C80A020093A77E /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
 		26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
@@ -62,6 +63,8 @@
 		266C6D8724BEE051008630BE /* TTMenuSegUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTMenuSegUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		266C6D8B24BEE051008630BE /* TTMenuSegUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegUITests.m; sourceTree = "<group>"; };
 		266C6D8D24BEE051008630BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26AD069F24C84F4700E220BE /* DecoratorTestControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecoratorTestControllerViewController.h; sourceTree = "<group>"; };
+		26AD06A024C84F4700E220BE /* DecoratorTestControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecoratorTestControllerViewController.m; sourceTree = "<group>"; };
 		26EEC89724C80A020093A77E /* TTMenuSegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegView.m; sourceTree = "<group>"; };
 		26EEC89924C80A020093A77E /* TTMenuSegItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegItem.m; sourceTree = "<group>"; };
 		26EEC89A24C80A020093A77E /* TTMenuSeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSeg.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			children = (
 				26EEC8BD24C80BB10093A77E /* SimpleUseController.h */,
 				26EEC8BC24C80BB10093A77E /* SimpleUseController.m */,
+				26AD069F24C84F4700E220BE /* DecoratorTestControllerViewController.h */,
+				26AD06A024C84F4700E220BE /* DecoratorTestControllerViewController.m */,
 			);
 			path = examples;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				26EEC8A924C80A020093A77E /* TTMenuSegLabel.m in Sources */,
 				26EEC8AF24C80A6D0093A77E /* TTMenuSegDecrator.m in Sources */,
 				26EEC8B024C80A6D0093A77E /* TTMenuSegLabelDecrator.m in Sources */,
+				26AD06A124C84F4700E220BE /* DecoratorTestControllerViewController.m in Sources */,
 				266C6D7724BEE050008630BE /* main.m in Sources */,
 				26EEC8C124C80CC50093A77E /* TTMenuSeqTestCell.m in Sources */,
 				26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */,

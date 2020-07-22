@@ -12,11 +12,8 @@
 #import "TTMenuSegLabelDecrator.h"
 #import "TTMenuSeqTestCell.h"
 #import "SimpleUseController.h"
+#import "DecoratorTestControllerViewController.h"
 
-typedef NS_ENUM(NSUInteger,TTMenuSeqFunType) {
-    TTMenuSeqFunTypeBase,
-    TTMenuSeqFunTypeCount
-};
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -64,6 +61,8 @@ typedef NS_ENUM(NSUInteger,TTMenuSeqFunType) {
     TTMenuSeqFunType type = indexPath.row;
     if (type == TTMenuSeqFunTypeBase) {
         [self.navigationController pushViewController:[[SimpleUseController alloc] init] animated:YES];
+    }else if (type == TTMenuSeqFunTypeDecorater) {
+        [self.navigationController pushViewController:[[DecoratorTestControllerViewController alloc] init] animated:YES];
     }
 }
 
