@@ -16,12 +16,12 @@
 		266C6D7724BEE050008630BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D7624BEE050008630BE /* main.m */; };
 		266C6D8124BEE051008630BE /* TTMenuSegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8024BEE051008630BE /* TTMenuSegTests.m */; };
 		266C6D8C24BEE051008630BE /* TTMenuSegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8B24BEE051008630BE /* TTMenuSegUITests.m */; };
-		266C6D9B24BEE061008630BE /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D9A24BEE061008630BE /* TTMenuSeg.m */; };
-		266C6D9E24BEE0C4008630BE /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D9D24BEE0C4008630BE /* TTMenuSegItem.m */; };
-		266C6DA124BEE257008630BE /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6DA024BEE257008630BE /* TTMenuSegView.m */; };
-		266C6DA424BF1213008630BE /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6DA324BF1213008630BE /* TTMenuSegLabel.m */; };
-		2675EB7924C14737003C0246 /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2675EB7824C14737003C0246 /* TTMenuSegDecrator.m */; };
-		2675EB7F24C16317003C0246 /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2675EB7E24C16317003C0246 /* TTMenuSegLabelDecrator.m */; };
+		26EEC8A424C80A020093A77E /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
+		26EEC8A624C80A020093A77E /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
+		26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
+		26EEC8A924C80A020093A77E /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */; };
+		26EEC8AF24C80A6D0093A77E /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */; };
+		26EEC8B024C80A6D0093A77E /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,19 +60,19 @@
 		266C6D8724BEE051008630BE /* TTMenuSegUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTMenuSegUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		266C6D8B24BEE051008630BE /* TTMenuSegUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegUITests.m; sourceTree = "<group>"; };
 		266C6D8D24BEE051008630BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		266C6D9924BEE061008630BE /* TTMenuSeg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSeg.h; sourceTree = "<group>"; };
-		266C6D9A24BEE061008630BE /* TTMenuSeg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSeg.m; sourceTree = "<group>"; };
-		266C6D9C24BEE0C4008630BE /* TTMenuSegItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegItem.h; sourceTree = "<group>"; };
-		266C6D9D24BEE0C4008630BE /* TTMenuSegItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegItem.m; sourceTree = "<group>"; };
-		266C6D9F24BEE257008630BE /* TTMenuSegView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegView.h; sourceTree = "<group>"; };
-		266C6DA024BEE257008630BE /* TTMenuSegView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegView.m; sourceTree = "<group>"; };
-		266C6DA224BF1213008630BE /* TTMenuSegLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabel.h; sourceTree = "<group>"; };
-		266C6DA324BF1213008630BE /* TTMenuSegLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabel.m; sourceTree = "<group>"; };
-		2675EB7724C14737003C0246 /* TTMenuSegDecrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegDecrator.h; sourceTree = "<group>"; };
-		2675EB7824C14737003C0246 /* TTMenuSegDecrator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegDecrator.m; sourceTree = "<group>"; };
-		2675EB7A24C14A31003C0246 /* TTMenuSegHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegHeader.h; sourceTree = "<group>"; };
-		2675EB7D24C16317003C0246 /* TTMenuSegLabelDecrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabelDecrator.h; sourceTree = "<group>"; };
-		2675EB7E24C16317003C0246 /* TTMenuSegLabelDecrator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabelDecrator.m; sourceTree = "<group>"; };
+		26EEC89724C80A020093A77E /* TTMenuSegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegView.m; sourceTree = "<group>"; };
+		26EEC89924C80A020093A77E /* TTMenuSegItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegItem.m; sourceTree = "<group>"; };
+		26EEC89A24C80A020093A77E /* TTMenuSeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSeg.h; sourceTree = "<group>"; };
+		26EEC89B24C80A020093A77E /* TTMenuSegLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabel.h; sourceTree = "<group>"; };
+		26EEC89E24C80A020093A77E /* TTMenuSegView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegView.h; sourceTree = "<group>"; };
+		26EEC89F24C80A020093A77E /* TTMenuSeg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSeg.m; sourceTree = "<group>"; };
+		26EEC8A024C80A020093A77E /* TTMenuSegItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegItem.h; sourceTree = "<group>"; };
+		26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabel.m; sourceTree = "<group>"; };
+		26EEC8A324C80A020093A77E /* TTMenuSegHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegHeader.h; sourceTree = "<group>"; };
+		26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegDecrator.m; sourceTree = "<group>"; };
+		26EEC8AC24C80A6D0093A77E /* TTMenuSegLabelDecrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabelDecrator.h; sourceTree = "<group>"; };
+		26EEC8AD24C80A6D0093A77E /* TTMenuSegDecrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegDecrator.h; sourceTree = "<group>"; };
+		26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabelDecrator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +127,7 @@
 				266C6D6524BEE04F008630BE /* AppDelegate.m */,
 				266C6D6724BEE04F008630BE /* SceneDelegate.h */,
 				266C6D6824BEE04F008630BE /* SceneDelegate.m */,
+				26EEC89624C80A020093A77E /* src */,
 				266C6D6A24BEE04F008630BE /* ViewController.h */,
 				266C6D6B24BEE04F008630BE /* ViewController.m */,
 				266C6D6D24BEE04F008630BE /* Main.storyboard */,
@@ -134,19 +135,6 @@
 				266C6D7224BEE050008630BE /* LaunchScreen.storyboard */,
 				266C6D7524BEE050008630BE /* Info.plist */,
 				266C6D7624BEE050008630BE /* main.m */,
-				266C6D9924BEE061008630BE /* TTMenuSeg.h */,
-				266C6D9A24BEE061008630BE /* TTMenuSeg.m */,
-				266C6D9C24BEE0C4008630BE /* TTMenuSegItem.h */,
-				266C6D9D24BEE0C4008630BE /* TTMenuSegItem.m */,
-				2675EB7A24C14A31003C0246 /* TTMenuSegHeader.h */,
-				266C6D9F24BEE257008630BE /* TTMenuSegView.h */,
-				266C6DA024BEE257008630BE /* TTMenuSegView.m */,
-				266C6DA224BF1213008630BE /* TTMenuSegLabel.h */,
-				266C6DA324BF1213008630BE /* TTMenuSegLabel.m */,
-				2675EB7724C14737003C0246 /* TTMenuSegDecrator.h */,
-				2675EB7824C14737003C0246 /* TTMenuSegDecrator.m */,
-				2675EB7D24C16317003C0246 /* TTMenuSegLabelDecrator.h */,
-				2675EB7E24C16317003C0246 /* TTMenuSegLabelDecrator.m */,
 			);
 			path = TTMenuSeg;
 			sourceTree = "<group>";
@@ -167,6 +155,34 @@
 				266C6D8D24BEE051008630BE /* Info.plist */,
 			);
 			path = TTMenuSegUITests;
+			sourceTree = "<group>";
+		};
+		26EEC89624C80A020093A77E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				26EEC8AA24C80A6D0093A77E /* decorate */,
+				26EEC89E24C80A020093A77E /* TTMenuSegView.h */,
+				26EEC89724C80A020093A77E /* TTMenuSegView.m */,
+				26EEC89B24C80A020093A77E /* TTMenuSegLabel.h */,
+				26EEC89A24C80A020093A77E /* TTMenuSeg.h */,
+				26EEC89F24C80A020093A77E /* TTMenuSeg.m */,
+				26EEC8A024C80A020093A77E /* TTMenuSegItem.h */,
+				26EEC89924C80A020093A77E /* TTMenuSegItem.m */,
+				26EEC8A324C80A020093A77E /* TTMenuSegHeader.h */,
+				26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		26EEC8AA24C80A6D0093A77E /* decorate */ = {
+			isa = PBXGroup;
+			children = (
+				26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */,
+				26EEC8AC24C80A6D0093A77E /* TTMenuSegLabelDecrator.h */,
+				26EEC8AD24C80A6D0093A77E /* TTMenuSegDecrator.h */,
+				26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */,
+			);
+			path = decorate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,15 +316,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				266C6D6C24BEE04F008630BE /* ViewController.m in Sources */,
-				266C6D9E24BEE0C4008630BE /* TTMenuSegItem.m in Sources */,
-				2675EB7924C14737003C0246 /* TTMenuSegDecrator.m in Sources */,
+				26EEC8A424C80A020093A77E /* TTMenuSegView.m in Sources */,
 				266C6D6624BEE04F008630BE /* AppDelegate.m in Sources */,
-				266C6D9B24BEE061008630BE /* TTMenuSeg.m in Sources */,
+				26EEC8A924C80A020093A77E /* TTMenuSegLabel.m in Sources */,
+				26EEC8AF24C80A6D0093A77E /* TTMenuSegDecrator.m in Sources */,
+				26EEC8B024C80A6D0093A77E /* TTMenuSegLabelDecrator.m in Sources */,
 				266C6D7724BEE050008630BE /* main.m in Sources */,
-				266C6DA124BEE257008630BE /* TTMenuSegView.m in Sources */,
+				26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */,
+				26EEC8A624C80A020093A77E /* TTMenuSegItem.m in Sources */,
 				266C6D6924BEE04F008630BE /* SceneDelegate.m in Sources */,
-				266C6DA424BF1213008630BE /* TTMenuSegLabel.m in Sources */,
-				2675EB7F24C16317003C0246 /* TTMenuSegLabelDecrator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
