@@ -20,6 +20,8 @@
 
 - (void)setTitleColor:(UIColor *)color;
 
+- (void)refreshItem;
+
 @end
 
 @protocol TTMenuSegItemSeger <NSObject>

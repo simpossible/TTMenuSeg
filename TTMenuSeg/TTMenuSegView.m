@@ -35,6 +35,10 @@
     self.label.font = [UIFont fontWithName:segItem.fontName size:segItem.selectFontSize];
 }
 
+- (void)refreshItem {
+    self.segItem = _segItem;
+}
+
 
 - (void)initialUI {
     self.containerView = [[UIControl alloc] init];

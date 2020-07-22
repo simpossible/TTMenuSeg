@@ -62,7 +62,8 @@
         _dColor.g = 0.64;
         _dColor.b = 0.7;
         _dColor.a = 1;
-        
+        _widthDegree = 1;
+        _heightDegree = 1;
         [self genOffColor];
     }
     return self;
@@ -112,10 +113,30 @@
     }
 }
 
+
+- (void)setTitle:(NSString *)title {
+    if (![_title isEqualToString:title]) {
+        _title = title;
+        UIView *seger = self.seger;
+        if (seger.superview) {
+            self.isSizeCaclulated = NO;
+            [self.delegate refreshItem];
+            [self initialSizes];
+            [self layOutWithX:self.startX];
+        }
+    }
+    _title = title;
+}
+
 - (void)caculateDecorators {
     for (TTMenuSegDecrator *dec in self.allDecorators) {
         if (!dec.superview) {
-            [self.seger addSubView:dec];
+            if ([self.seger respondsToSelector:@selector(addSubview:)]) {
+                TTMenuSeg *se = self.seger;
+                [se addSubview:dec];
+            }else {
+                NSLog(@"what happen");
+            }
         }
         [dec caculateFrameWithOrg:_lastFrame degree:_degree];
         
@@ -178,7 +199,6 @@
     CGFloat g = _dColor.g + _offColor.g * _degree;
     CGFloat b = _dColor.b + _offColor.b * _degree;
     CGFloat a = _dColor.a + _offColor.a * _degree;
-    NSLog(@"the r g b a is %f,%f %f %f",r,g,b,a);
     return  [UIColor colorWithRed:r green:g blue:b alpha:a];
 }
 

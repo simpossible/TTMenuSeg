@@ -99,6 +99,7 @@
     self.segs.backgroundColor = [UIColor orangeColor];
     self.segs.delegate = self;
     [self.segs setOutOff:0];
+
     
     // Do any additional setup after loading the view.
 }
