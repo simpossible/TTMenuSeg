@@ -22,6 +22,8 @@
 		26EEC8A924C80A020093A77E /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */; };
 		26EEC8AF24C80A6D0093A77E /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */; };
 		26EEC8B024C80A6D0093A77E /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */; };
+		26EEC8BE24C80BB10093A77E /* SimpleUseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8BC24C80BB10093A77E /* SimpleUseController.m */; };
+		26EEC8C124C80CC50093A77E /* TTMenuSeqTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8C024C80CC50093A77E /* TTMenuSeqTestCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		26EEC8AC24C80A6D0093A77E /* TTMenuSegLabelDecrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegLabelDecrator.h; sourceTree = "<group>"; };
 		26EEC8AD24C80A6D0093A77E /* TTMenuSegDecrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSegDecrator.h; sourceTree = "<group>"; };
 		26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegLabelDecrator.m; sourceTree = "<group>"; };
+		26EEC8BC24C80BB10093A77E /* SimpleUseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleUseController.m; sourceTree = "<group>"; };
+		26EEC8BD24C80BB10093A77E /* SimpleUseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleUseController.h; sourceTree = "<group>"; };
+		26EEC8BF24C80CC50093A77E /* TTMenuSeqTestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMenuSeqTestCell.h; sourceTree = "<group>"; };
+		26EEC8C024C80CC50093A77E /* TTMenuSeqTestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMenuSeqTestCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,9 @@
 				266C6D6A24BEE04F008630BE /* ViewController.h */,
 				266C6D6B24BEE04F008630BE /* ViewController.m */,
 				266C6D6D24BEE04F008630BE /* Main.storyboard */,
+				26EEC8BF24C80CC50093A77E /* TTMenuSeqTestCell.h */,
+				26EEC8C024C80CC50093A77E /* TTMenuSeqTestCell.m */,
+				26EEC8BB24C80BB10093A77E /* examples */,
 				266C6D7024BEE050008630BE /* Assets.xcassets */,
 				266C6D7224BEE050008630BE /* LaunchScreen.storyboard */,
 				266C6D7524BEE050008630BE /* Info.plist */,
@@ -183,6 +192,15 @@
 				26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */,
 			);
 			path = decorate;
+			sourceTree = "<group>";
+		};
+		26EEC8BB24C80BB10093A77E /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				26EEC8BD24C80BB10093A77E /* SimpleUseController.h */,
+				26EEC8BC24C80BB10093A77E /* SimpleUseController.m */,
+			);
+			path = examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26EEC8BE24C80BB10093A77E /* SimpleUseController.m in Sources */,
 				266C6D6C24BEE04F008630BE /* ViewController.m in Sources */,
 				26EEC8A424C80A020093A77E /* TTMenuSegView.m in Sources */,
 				266C6D6624BEE04F008630BE /* AppDelegate.m in Sources */,
@@ -322,6 +341,7 @@
 				26EEC8AF24C80A6D0093A77E /* TTMenuSegDecrator.m in Sources */,
 				26EEC8B024C80A6D0093A77E /* TTMenuSegLabelDecrator.m in Sources */,
 				266C6D7724BEE050008630BE /* main.m in Sources */,
+				26EEC8C124C80CC50093A77E /* TTMenuSeqTestCell.m in Sources */,
 				26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */,
 				26EEC8A624C80A020093A77E /* TTMenuSegItem.m in Sources */,
 				266C6D6924BEE04F008630BE /* SceneDelegate.m in Sources */,
@@ -496,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS98J4RYQ2;
 				INFOPLIST_FILE = TTMenuSeg/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS98J4RYQ2;
 				INFOPLIST_FILE = TTMenuSeg/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
