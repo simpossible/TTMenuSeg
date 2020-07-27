@@ -146,7 +146,7 @@
 
 - (void)dealForOutOff:(CGFloat)off {
     if ([self isOffMyDeal:off]) {
-
+        [self.seger setCurrentItem:self];
         CGFloat offed = off - _expectOutOff;
         if (!_nextItem) {
             if (offed > 0) {
@@ -197,6 +197,9 @@
         }
         [self reset:NO];
         [_nextItem dealForOutOff:off];
+        if (!_nextItem) {
+            [self.seger setCurrentItem:nil];
+        }
     }
 }
 

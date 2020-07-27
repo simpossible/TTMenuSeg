@@ -47,6 +47,8 @@
 
 - (void)setContentWidth:(CGFloat)width;
 
+- (void)setCurrentItem:(TTMenuSegItem *)currentItem;
+
 @end
 
 @protocol TTMenuSegItemProgress <NSObject>

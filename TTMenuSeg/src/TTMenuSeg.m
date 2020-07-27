@@ -32,10 +32,12 @@
 
 @property (nonatomic, strong) UIScrollView * scrollView;
 
+/**当前的seg*/
+@property (nonatomic, assign) TTMenuSegItem * currentItem;
+
 @end
 
 @implementation TTMenuSeg
-
 
 
 - (instancetype)initWithItems:(NSArray<TTMenuSegItem *> *)items {
@@ -48,6 +50,8 @@
         _indeicatorCorner = 2;
         self.items = items;
         self.scrollView = [[UIScrollView alloc] init];
+        self.scrollView.showsHorizontalScrollIndicator = NO;
+        self.scrollView.showsVerticalScrollIndicator = NO;
         [self addSubView:self.scrollView];
     }
     return self;
@@ -111,8 +115,16 @@
     }
 //    if (_shouldReciveScroll) {
         _currentOff = off;
+    if (_currentItem) { //这里避免响应链调用太长
+        if (_currentItem.preItem) {
+            [_currentItem.preItem dealForOutOff:off];
+        }else {
+            [_currentItem dealForOutOff:off];
+        }
+    }else {
         TTMenuSegItem *item = [self.items firstObject];
         [item dealForOutOff:off];
+    }
 //    }
 }
 /*
@@ -221,5 +233,6 @@
     [super setBackgroundColor:backgroundColor];
     self.scrollView.backgroundColor = backgroundColor;
 }
+
 
 @end
