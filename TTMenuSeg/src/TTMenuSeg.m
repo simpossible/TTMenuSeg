@@ -8,6 +8,7 @@
 
 #import "TTMenuSeg.h"
 #import "TTMenuSegView.h"
+#import <UIKit/UIKit.h>
 
 @interface TTMenuSeg()<TTMenuSegItemSeger>
 
@@ -25,6 +26,12 @@
 /**记录当前的偏移量*/
 @property (nonatomic, assign) CGFloat currentOff;
 
+/**所有的视图-用来作为重用逻辑*/
+@property (nonatomic, strong) NSDictionary * allViews;
+
+
+@property (nonatomic, strong) UIScrollView * scrollView;
+
 @end
 
 @implementation TTMenuSeg
@@ -32,14 +39,16 @@
 
 
 - (instancetype)initWithItems:(NSArray<TTMenuSegItem *> *)items {
-    if (self = [super init]) {
+    if (self = [self init]) {
         _shouldReciveScroll = YES;
-        _indicatorColor = [UIColor whiteColor];
+        _indicatorColor = [UIColor blackColor];
         _indicatorHeight = 4;
         _indicatorWidthMin = 12;
         _indicatorWidthMax = 24;
         _indeicatorCorner = 2;
         self.items = items;
+        self.scrollView = [[UIScrollView alloc] init];
+        [self addSubView:self.scrollView];
     }
     return self;
 }
@@ -66,9 +75,9 @@
         item.preItem = preItem;
         preItem.nextItem = item;
         
-        TTMenuSegView *segView = [[TTMenuSegView alloc] init];
+        TTMenuSegView *segView = [self viewForItem:item];
         segView.segItem = item;
-        [self addSubview:segView];
+        [self.scrollView addSubview:segView];
         preItem = item;
     }
     TTMenuSegItem *item = [self.items firstObject];
@@ -76,9 +85,14 @@
     [item initialExpectOff:0];    
 }
 
+- (TTMenuSegView *)viewForItem:(TTMenuSegItem *)item {
+    Class cls = [item itemViewClass];
+    return [[cls alloc] init];
+}
+
 - (void)initialIndicatorView {
     self.indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorWidthMin, self.indicatorHeight)];
-    [self addSubview:self.indicatorView];
+    [self.scrollView addSubview:self.indicatorView];
     self.indicatorView.backgroundColor = self.indicatorColor;
     self.indicatorView.layer.cornerRadius = self.indeicatorCorner;
     self.indicatorView.layer.masksToBounds = YES;
@@ -111,9 +125,7 @@
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
-
-
-    
+    self.scrollView.frame = self.bounds;
     [self refreshSuperHeight];
 }
 
@@ -134,6 +146,7 @@
     CGRect indicatorFrame = self.indicatorView.frame;
     indicatorFrame.origin.y = self.bounds.size.height - self.indicatorHeight - self.indicatorBottomPadd;
     self.indicatorView.frame = indicatorFrame;
+    self.scrollView.frame = self.bounds;
     [self refreshSuperHeight];
 }
 
@@ -148,6 +161,11 @@
     
 //    [self.items.firstObject reload];
 }
+
+- (void)addSubView:(UIView *)view { 
+    [super addSubview:view];
+}
+
 
 + (instancetype)ttDefaultSegWithStrings:(NSArray<NSString *> *)items {
     NSMutableArray *segItems = [NSMutableArray array];
@@ -179,4 +197,20 @@
 - (void)addSubview:(UIView *)view {
     [super addSubview:view];
 }
+
+/**滚动的锚点*/
+- (CGFloat)segScrollAnchor {
+    return [self bounds].size.width / 2;
+}
+
+/** 内容滚动 */
+- (void)scrollOffX:(CGFloat)xOff {
+    [self.scrollView setContentOffset:(CGPointMake(xOff, 0))];
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    self.scrollView.backgroundColor = backgroundColor;
+}
+
 @end

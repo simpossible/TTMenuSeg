@@ -39,6 +39,12 @@
 
 - (void)addSubView:(UIView *)view;
 
+/**滚动的锚点*/
+- (CGFloat)segScrollAnchor;
+
+/** 内容滚动 */
+- (void)scrollOffX:(CGFloat)xOff;
+
 @end
 
 @protocol TTMenuSegItemProgress <NSObject>
@@ -120,4 +126,6 @@
 - (void)setSuperHeight:(CGFloat)superHeight;
 
 - (void)reload;
+
+- (Class)itemViewClass;
 @end
