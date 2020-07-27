@@ -220,6 +220,7 @@
     
     CGFloat maxX = self.scrollView.contentSize.width - self.bounds.size.width;
     if (xOff > maxX) {
+        [self.scrollView setContentOffset:(CGPointMake(maxX, 0))];
         return;
     }
     [self.scrollView setContentOffset:(CGPointMake(xOff, 0))];
