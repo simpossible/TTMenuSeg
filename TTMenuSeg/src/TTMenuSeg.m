@@ -169,6 +169,11 @@
     }
     _shouldReciveScroll = NO;
     self.touchExpectOff = item.expectOutOff;
+    
+    if (item != _currentItem) {
+        [_currentItem reset:YES];
+    }
+    self.currentItem = item;
     [self.delegate ttMenuSegItemSelected:item];
     
 //    [self.items.firstObject reload];
@@ -234,6 +239,5 @@
     [super setBackgroundColor:backgroundColor];
     self.scrollView.backgroundColor = backgroundColor;
 }
-
 
 @end

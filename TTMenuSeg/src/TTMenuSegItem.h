@@ -134,4 +134,6 @@
 - (void)reload;
 
 - (Class)itemViewClass;
+
+- (void)reset:(BOOL)forward;
 @end
