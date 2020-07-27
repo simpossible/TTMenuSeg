@@ -45,6 +45,8 @@
 /** 内容滚动 */
 - (void)scrollOffX:(CGFloat)xOff;
 
+- (void)setContentWidth:(CGFloat)width;
+
 @end
 
 @protocol TTMenuSegItemProgress <NSObject>
@@ -71,6 +73,8 @@
 @property (nonatomic, assign, readonly) NSInteger index;
 
 @property (nonatomic, assign) CGFloat startX;
+
+@property (nonatomic, assign, readonly) CGRect lastFrame;
 
 /**允许用户传入上下文对象*/
 @property (nonatomic, weak) id context;

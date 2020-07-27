@@ -205,7 +205,16 @@
 
 /** 内容滚动 */
 - (void)scrollOffX:(CGFloat)xOff {
+    
+    CGFloat maxX = self.scrollView.contentSize.width - self.bounds.size.width;
+    if (xOff > maxX) {
+        return;
+    }
     [self.scrollView setContentOffset:(CGPointMake(xOff, 0))];
+}
+
+- (void)setContentWidth:(CGFloat)width {
+    self.scrollView.contentSize = CGSizeMake(width, self.bounds.size.height);
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {

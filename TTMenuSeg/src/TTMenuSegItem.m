@@ -185,7 +185,7 @@
         [_nextItem.nextItem reset:YES];//将无关的item重置保证点击的正确性
         
         CGFloat scrollAnchor = [self.seger segScrollAnchor];//拿到滚动的锚点
-        if (iFrame.origin.x > scrollAnchor) {
+        if (iFrame.origin.x > scrollAnchor) {            
             [self.seger scrollOffX:(iFrame.origin.x - scrollAnchor)];
         }
         
@@ -344,4 +344,13 @@
 - (Class)itemViewClass {
     return [TTMenuSegView class];
 }
+
+- (void)setLastFrame:(CGRect)lastFrame {
+    _lastFrame = lastFrame;
+    if (!_nextItem) {//如果是最后一个
+        CGFloat width = lastFrame.origin.x + lastFrame.size.width + self.inset.right;
+        [self.seger setContentWidth:width];
+    }
+}
+
 @end
