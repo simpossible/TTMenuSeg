@@ -30,57 +30,57 @@
     
     self.scrollView.delegate = self;
     
-    
+//
     self.title = @"基础使用";
-    
+
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    TTMenuSegItem *item = [[TTMenuSegItem alloc] init];
-    item.fontName = @"PingFangSC-Semibold";
-    item.selectFontSize = 24;
-    item.defaultFontSize = 16;
-    item.title = @"推荐";
-    item.outWidth = 300;
-    item.inset = UIEdgeInsetsMake(0, 6, 0, 6);
-    
-    UIView *v = [[UIView alloc] init];
-    v.frame = CGRectMake(0, 0, 300, 300);
-    v.backgroundColor = [UIColor orangeColor];
-    [self.scrollView addSubview:v];
-    
-    
-    TTMenuSegItem *item1 = [[TTMenuSegItem alloc] init];
-    item1.fontName = @"PingFangSC-Semibold";
-    item1.selectFontSize = 24;
-    item1.defaultFontSize = 16;
-    item1.title = @"最新";
-    item1.outWidth = 200;
-    v = [[UIView alloc] init];
-    v.frame = CGRectMake(300,0 , 200, 300);
-    v.backgroundColor = [UIColor redColor];
-    [self.scrollView addSubview:v];
-    
-    
-    TTMenuSegItem *item2 = [[TTMenuSegItem alloc] init];
-    item2.fontName = @"PingFangSC-Semibold";
-    item2.selectFontSize = 24;
-    item2.defaultFontSize = 16;
-    item2.title = @"热门信息";
-    item2.outWidth = 100;
-    v = [[UIView alloc] init];
-    v.frame = CGRectMake( 500,0, 100, 300);
-    v.backgroundColor = [UIColor blueColor];
-    [self.scrollView addSubview:v];
-    
-    TTMenuSegItem *item3 = [[TTMenuSegItem alloc] init];
-    item3.fontName = @"PingFangSC-Semibold";
-    item3.selectFontSize = 24;
-    item3.defaultFontSize = 16;
-    item3.title = @"更多";
-    item3.outWidth = 250;
-    v = [[UIView alloc] init];
-    v.frame = CGRectMake(600,0, 250, 300);
-    v.backgroundColor = [UIColor yellowColor];
-    [self.scrollView addSubview:v];
+//    TTMenuSegItem *item = [[TTMenuSegItem alloc] init];
+//    item.fontName = @"PingFangSC-Semibold";
+//    item.selectFontSize = 24;
+//    item.defaultFontSize = 16;
+//    item.title = @"推荐";
+//    item.outWidth = 300;
+//    item.inset = UIEdgeInsetsMake(0, 6, 0, 6);
+//
+//    UIView *v = [[UIView alloc] init];
+//    v.frame = CGRectMake(0, 0, 300, 300);
+//    v.backgroundColor = [UIColor orangeColor];
+//    [self.scrollView addSubview:v];
+//
+//
+//    TTMenuSegItem *item1 = [[TTMenuSegItem alloc] init];
+//    item1.fontName = @"PingFangSC-Semibold";
+//    item1.selectFontSize = 24;
+//    item1.defaultFontSize = 16;
+//    item1.title = @"最新";
+//    item1.outWidth = 200;
+//    v = [[UIView alloc] init];
+//    v.frame = CGRectMake(300,0 , 200, 300);
+//    v.backgroundColor = [UIColor redColor];
+//    [self.scrollView addSubview:v];
+//
+//
+//    TTMenuSegItem *item2 = [[TTMenuSegItem alloc] init];
+//    item2.fontName = @"PingFangSC-Semibold";
+//    item2.selectFontSize = 24;
+//    item2.defaultFontSize = 16;
+//    item2.title = @"热门信息";
+//    item2.outWidth = 100;
+//    v = [[UIView alloc] init];
+//    v.frame = CGRectMake( 500,0, 100, 300);
+//    v.backgroundColor = [UIColor blueColor];
+//    [self.scrollView addSubview:v];
+//
+//    TTMenuSegItem *item3 = [[TTMenuSegItem alloc] init];
+//    item3.fontName = @"PingFangSC-Semibold";
+//    item3.selectFontSize = 24;
+//    item3.defaultFontSize = 16;
+//    item3.title = @"更多";
+//    item3.outWidth = 250;
+//    v = [[UIView alloc] init];
+//    v.frame = CGRectMake(600,0, 250, 300);
+//    v.backgroundColor = [UIColor yellowColor];
+//    [self.scrollView addSubview:v];
     
 //    self.segs = [[TTMenuSeg alloc] initWithItems:@[item,item1,item2,item3]];
         self.segs = [TTMenuSeg ttDefaultSegWithStrings:@[@"推荐",@"热门",@"最新",@"更多信息",@"苹果",@"水蜜桃",@"香蕉",@"基础使用",@"滥用"]];
@@ -92,7 +92,15 @@
     self.segs.delegate = self;
     [self.segs setOutOff:0];
     
-    self.scrollView.contentSize = CGSizeMake(10000, 500);
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    self.scrollView.contentSize = CGSizeMake(screenWidth * 9, 500);
+    for (int i = 0; i < 9; i ++) {
+        UIView *v = [UIView new];
+        [self.scrollView addSubview:v];
+        v.frame = CGRectMake(i * screenWidth, 0, screenWidth, 500);
+        v.backgroundColor = [UIColor colorWithRed:1-0.1*i green:fmodf(0.15 * i, 1) blue:0.1*i alpha:1];
+    }
+//    self.scrollView.pagingEnabled = YES;
     // Do any additional setup after loading the view.
 }
 
