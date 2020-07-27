@@ -49,6 +49,8 @@
 
 - (void)setCurrentItem:(TTMenuSegItem *)currentItem;
 
+- (void)addDecorator:(TTMenuSegDecrator *)decorator;
+
 @end
 
 @protocol TTMenuSegItemProgress <NSObject>

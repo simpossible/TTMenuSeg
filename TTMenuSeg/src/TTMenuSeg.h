@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSInteger)selectedIndex;
 
-
+- (void)addDecorator:(TTMenuSegDecrator *)decorator;
 @end
 
 NS_ASSUME_NONNULL_END

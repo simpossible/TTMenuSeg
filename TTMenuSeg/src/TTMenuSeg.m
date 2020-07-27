@@ -223,7 +223,13 @@
 /** 内容滚动 */
 - (void)scrollOffX:(CGFloat)xOff {
     
-    CGFloat maxX = self.scrollView.contentSize.width - self.bounds.size.width;
+    CGFloat scrollWidth = _scrollView.contentSize.width;
+    CGFloat segWidth = self.bounds.size.width;
+    
+    if (scrollWidth > segWidth) {
+        
+    }
+    CGFloat maxX = scrollWidth - segWidth;
     if (xOff > maxX) {
         [self.scrollView setContentOffset:(CGPointMake(maxX, 0))];
         return;
@@ -233,6 +239,7 @@
 
 - (void)setContentWidth:(CGFloat)width {
     self.scrollView.contentSize = CGSizeMake(width, self.bounds.size.height);
+    self.scrollView.scrollEnabled = width > self.bounds.size.width;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
@@ -240,4 +247,7 @@
     self.scrollView.backgroundColor = backgroundColor;
 }
 
+- (void)addDecorator:(TTMenuSegDecrator *)decorator {
+    [self.scrollView addSubview:decorator];
+}
 @end

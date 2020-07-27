@@ -334,12 +334,7 @@
 
 - (void)addDecrator:(TTMenuSegDecrator *)decrator {
     if (self.seger) {
-        if ([self.seger respondsToSelector:@selector(addSubview:)]) {
-            TTMenuSeg *se = self.seger;
-            [se addSubview:decrator];
-        }else {
-            NSLog(@"what happen");
-        }
+        [self.seger addDecorator:decrator];
     }
     [self.allDecorators addObject:decrator];
 }
