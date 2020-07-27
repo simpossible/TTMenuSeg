@@ -83,12 +83,12 @@
     [self.scrollView addSubview:v];
     
     self.segs = [[TTMenuSeg alloc] initWithItems:@[item,item1,item2,item3]];
-    //    self.segs = [TTMenuSeg ttDefaultSegWithStrings:@[@"推荐",@"热门",@"最新"]];
+//        self.segs = [TTMenuSeg ttDefaultSegWithStrings:@[@"推荐",@"热门",@"最新"]];
     self.segs.frame = CGRectMake(0,0, self.view.bounds.size.width, 64);
     
     [self.view addSubview:self.segs];
     
-    self.segs.backgroundColor = [UIColor orangeColor];
+    self.segs.backgroundColor = [UIColor whiteColor];
     self.segs.delegate = self;
     [self.segs setOutOff:0];
     // Do any additional setup after loading the view.

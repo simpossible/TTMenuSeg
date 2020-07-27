@@ -29,14 +29,14 @@
     
     self.scrollView.delegate = self;
     self.scrollView.contentSize = CGSizeMake(1000, 500);
+    self.title = @"装饰";
     
     TTMenuSegLabelDecrator *dec = [[TTMenuSegLabelDecrator alloc] init];
-    dec.postion = CGPointMake(1, 0.5);
+    dec.postion = CGPointMake(1, 0.3);
     dec.fontName = @"PingFangSC-Regular";
-    
     dec.selectFontSize = 12;
     dec.defaultFontSize = 10;
-    dec.content = @"哇哈哈";
+    dec.content = @"(1)";
     
     
     
@@ -47,6 +47,9 @@
     item.title = @"推荐";
     item.outWidth = 300;
     item.inset = UIEdgeInsetsMake(0, 6, 0, 20);
+    [item setSelectedColor:0.12 g:0.12 b:0.13 a:1];
+    [item setDefaultColor:0.6 g:0.64 b:0.7 a:1];
+
     
     UIView *v = [[UIView alloc] init];
     v.frame = CGRectMake(0, 0, 300, 300);
@@ -89,13 +92,11 @@
     [self.scrollView addSubview:v];
     
     self.segs = [[TTMenuSeg alloc] initWithItems:@[item,item1,item2,item3]];
-    //    self.segs = [TTMenuSeg ttDefaultSegWithStrings:@[@"推荐",@"热门",@"最新"]];
     self.segs.frame = CGRectMake(0,146, self.view.bounds.size.width, 64);
-    
     [self.view addSubview:self.segs];
     [item addDecrator:dec];
     
-    self.segs.backgroundColor = [UIColor orangeColor];
+    self.segs.backgroundColor = [UIColor whiteColor];
     self.segs.delegate = self;
     [self.segs setOutOff:0];
     // Do any additional setup after loading the view.
