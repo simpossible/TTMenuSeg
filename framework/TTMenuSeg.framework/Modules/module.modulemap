@@ -1,0 +1,6 @@
+framework module TTMenuSeg {
+umbrella header "TTMenuSeg.h"
+
+export *
+module * { export * }
+}
