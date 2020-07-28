@@ -17,18 +17,18 @@
 		266C6D8124BEE051008630BE /* TTMenuSegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8024BEE051008630BE /* TTMenuSegTests.m */; };
 		266C6D8C24BEE051008630BE /* TTMenuSegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8B24BEE051008630BE /* TTMenuSegUITests.m */; };
 		26AD06A124C84F4700E220BE /* DecoratorTestControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD06A024C84F4700E220BE /* DecoratorTestControllerViewController.m */; };
-		26DC91BA24D011100020C7CC /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */; };
-		26DC91BB24D011100020C7CC /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */; };
-		26DC91BC24D011100020C7CC /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
-		26DC91BD24D011100020C7CC /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
-		26DC91BE24D011100020C7CC /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
-		26DC91BF24D011100020C7CC /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */; };
 		26DC91C024D0112C0020C7CC /* TTMenuSegLabelDecrator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8AC24C80A6D0093A77E /* TTMenuSegLabelDecrator.h */; };
 		26DC91C124D0112C0020C7CC /* TTMenuSegDecrator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8AD24C80A6D0093A77E /* TTMenuSegDecrator.h */; };
 		26DC91C224D0112C0020C7CC /* TTMenuSegView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC89E24C80A020093A77E /* TTMenuSegView.h */; };
 		26DC91C324D0112C0020C7CC /* TTMenuSeg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC89A24C80A020093A77E /* TTMenuSeg.h */; };
 		26DC91C424D0112C0020C7CC /* TTMenuSegItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8A024C80A020093A77E /* TTMenuSegItem.h */; };
 		26DC91C524D0112C0020C7CC /* TTMenuSegHeader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8A324C80A020093A77E /* TTMenuSegHeader.h */; };
+		26DC91C624D0125F0020C7CC /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */; };
+		26DC91C724D0125F0020C7CC /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */; };
+		26DC91C824D0125F0020C7CC /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
+		26DC91C924D0125F0020C7CC /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
+		26DC91CA24D0125F0020C7CC /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
+		26DC91CB24D0125F0020C7CC /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */; };
 		26EEC8A424C80A020093A77E /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
 		26EEC8A624C80A020093A77E /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
 		26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
@@ -434,12 +434,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26DC91BA24D011100020C7CC /* TTMenuSegDecrator.m in Sources */,
-				26DC91BE24D011100020C7CC /* TTMenuSegItem.m in Sources */,
-				26DC91BF24D011100020C7CC /* TTMenuSegLabel.m in Sources */,
-				26DC91BC24D011100020C7CC /* TTMenuSegView.m in Sources */,
-				26DC91BD24D011100020C7CC /* TTMenuSeg.m in Sources */,
-				26DC91BB24D011100020C7CC /* TTMenuSegLabelDecrator.m in Sources */,
+				26DC91C624D0125F0020C7CC /* TTMenuSegDecrator.m in Sources */,
+				26DC91C724D0125F0020C7CC /* TTMenuSegLabelDecrator.m in Sources */,
+				26DC91C824D0125F0020C7CC /* TTMenuSegView.m in Sources */,
+				26DC91C924D0125F0020C7CC /* TTMenuSeg.m in Sources */,
+				26DC91CA24D0125F0020C7CC /* TTMenuSegItem.m in Sources */,
+				26DC91CB24D0125F0020C7CC /* TTMenuSegLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,11 +705,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHZFCBBQ75;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -718,11 +719,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHZFCBBQ75;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};
