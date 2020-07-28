@@ -201,7 +201,7 @@ function copyFramework() {
   # Smash the two static libraries into one fat binary and store it in the .framework
   lipo -create "${PLATFORM_EXECUTABLE_PATH}" "${OTHER_PLATFORM_EXECUTABLE_PATH}" -output "${OUTPUT_PATH}"
   # Delete temporary folder if exists
-  FINAL_OUTPUT_PATH="output/framework/${SF_WRAPPER_NAME}"
+  FINAL_OUTPUT_PATH="framework/${SF_WRAPPER_NAME}"
   if [ -d "${FINAL_OUTPUT_PATH}" ]
   mkdir -p "${FINAL_OUTPUT_PATH}"
   then
@@ -220,7 +220,6 @@ function copyFramework() {
     exit -1
   fi  
   # 拷贝到 COPYTO 目录   
-  copytopath ${SF_WRAPPER_NAME}  "${FINAL_OUTPUT_PATH}" "$pathcurrent"
 
   exit 0
 }
@@ -258,25 +257,6 @@ function buildMoudleMap(){
   echo "module * { export * }" >> "$MAPPATH"
   echo "}" >> "$MAPPATH"
   
-}
-
-function copytopath() {
-  
- 
-  TARGETPATH="framework/"
-  COPYFROMPATH="output/framework"
-  
-  echo "准备拷贝 $COPYFROMPATH 到 $TARGETPATH"
-    #拷贝
-    echo "开始拷贝"
-    rm -r $TARGETPATH
-    cp -a $COPYFROMPATH $TARGETPATH
-    echo "拷贝完成"
-    echo "准备删除原目录库" 
-    rm -r $COPYFROMPATH
-    echo "删除完成"
-  
- 
 }
 
 function copyBundle() {
