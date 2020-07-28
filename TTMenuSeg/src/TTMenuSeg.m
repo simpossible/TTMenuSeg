@@ -111,7 +111,7 @@
 
 - (void)setOutOff:(CGFloat)off {
     if (off == _touchExpectOff) {
-        _shouldReciveScroll = YES;
+//        _shouldReciveScroll = YES;
     }
 //    if (_shouldReciveScroll) {
         _currentOff = off;
@@ -171,7 +171,13 @@
     self.touchExpectOff = item.expectOutOff;
     
     if (item != _currentItem) {
-        [_currentItem reset:YES];
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.currentItem reset:YES];
+            [self setOutOff:item.expectOutOff];
+        } completion:^(BOOL finished) {
+            self.shouldReciveScroll = YES;
+        }];
+       
     }
     self.currentItem = item;
     [self.delegate ttMenuSegItemSelected:item];
