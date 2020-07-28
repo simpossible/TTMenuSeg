@@ -39,6 +39,18 @@
 
 - (void)addSubView:(UIView *)view;
 
+/**滚动的锚点*/
+- (CGFloat)segScrollAnchor;
+
+/** 内容滚动 */
+- (void)scrollOffX:(CGFloat)xOff;
+
+- (void)setContentWidth:(CGFloat)width;
+
+- (void)setCurrentItem:(TTMenuSegItem *)currentItem;
+
+- (void)addDecorator:(TTMenuSegDecrator *)decorator;
+
 @end
 
 @protocol TTMenuSegItemProgress <NSObject>
@@ -65,6 +77,8 @@
 @property (nonatomic, assign, readonly) NSInteger index;
 
 @property (nonatomic, assign) CGFloat startX;
+
+@property (nonatomic, assign, readonly) CGRect lastFrame;
 
 /**允许用户传入上下文对象*/
 @property (nonatomic, weak) id context;
@@ -120,4 +134,8 @@
 - (void)setSuperHeight:(CGFloat)superHeight;
 
 - (void)reload;
+
+- (Class)itemViewClass;
+
+- (void)reset:(BOOL)forward;
 @end

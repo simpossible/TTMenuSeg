@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)ttMenuSegItemSelected:(TTMenuSegItem *)item;
 
-
-
 @end
 
 @interface TTMenuSeg : UIView
@@ -52,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSInteger)selectedIndex;
 
-
+- (void)addDecorator:(TTMenuSegDecrator *)decorator;
 @end
 
 NS_ASSUME_NONNULL_END
