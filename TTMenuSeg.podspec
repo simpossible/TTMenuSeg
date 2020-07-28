@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                           滑动渐变标题是目前UI经常使用的，TTMenuSeg 封装了进度逻辑，并可根据进度进行自定义渐变
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/TTMenuSeg"
+  spec.homepage     = "https://github.com/simpossible/TTMenuSeg"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/TTMenuSeg.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "git@github.com:simpossible/TTMenuSeg.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
