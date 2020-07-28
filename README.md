@@ -4,10 +4,13 @@
 
 滑动渐变标题是目前UI经常使用的，TTMenuSeg 封装了进度逻辑，并可根据进度进行自定义渐变
 
-##### TTMenuSeg的基础使用
+#### TTMenuSeg的基础使用
 ![](https://github.com/simpossible/TTMenuSeq/raw/master/doc/gif_menu.gif)
 
-Code:
+#### CocoaPods 导入
+`pod 'TTMenuSeg','0.0.1'`
+
+##### Code:
 ```
     self.segs = [TTMenuSeg ttDefaultSegWithStrings:@[@"推荐",@"热门",@"最新"]];
     self.segs.frame = CGRectMake(0,0, self.view.bounds.size.width, 64);
