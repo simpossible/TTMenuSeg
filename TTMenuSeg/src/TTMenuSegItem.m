@@ -10,6 +10,7 @@
 
 #import "TTMenuSegHeader.h"
 #import "TTMenuSeg.h"
+#import "TTMenuSegView.h"
 
 @interface TTMenuSegItem()
 
@@ -105,7 +106,7 @@
         [self caculateDecorators];
        
         [self.nextItem layOutWithX:startX forceUpdate:force];
-         [_delegate setTitleColor:[self currentColor]];
+        [_delegate setTitleColor:[self currentColor]];
     }else {
         if (force) {
             [self.nextItem layOutWithX:startX forceUpdate:force];
@@ -145,7 +146,7 @@
 
 - (void)dealForOutOff:(CGFloat)off {
     if ([self isOffMyDeal:off]) {
-
+        [self.seger setCurrentItem:self];
         CGFloat offed = off - _expectOutOff;
         if (!_nextItem) {
             if (offed > 0) {
@@ -166,9 +167,9 @@
                 
         CGFloat iWidthDegree = orgDegree > 0.5 ? _degree/0.5 : orgDegree / 0.5;
         CGFloat iWidth = iWidthOff * iWidthDegree + iMinWidth;//计算真正的指示器宽度
+        
+        //计算指示器的宽度
         UIView * i = [self.seger indicatorView];
-        
-        
         CGFloat centerX = _lastFrame.origin.x + _lastFrame.size.width / 2;
         CGFloat nCenterX = _nextItem.lastFrame.origin.x + _nextItem.lastFrame.size.width / 2;
         CGFloat centerOff = nCenterX - centerX;//中心的距离
@@ -183,6 +184,11 @@
         
         [_nextItem.nextItem reset:YES];//将无关的item重置保证点击的正确性
         
+        CGFloat scrollAnchor = [self.seger segScrollAnchor];//拿到滚动的锚点
+        if (iFrame.origin.x > scrollAnchor) {            
+            [self.seger scrollOffX:(iFrame.origin.x - scrollAnchor)];
+        }
+        
     }else {
         if (!_preItem) {
             if (off < self.expectOutOff) {
@@ -191,7 +197,14 @@
         }
         [self reset:NO];
         [_nextItem dealForOutOff:off];
+        if (!_nextItem) {
+            [self.seger setCurrentItem:nil];
+        }
     }
+}
+
+- (void)caculateSegScroll {
+
 }
 
 - (UIColor *)currentColor {
@@ -321,13 +334,21 @@
 
 - (void)addDecrator:(TTMenuSegDecrator *)decrator {
     if (self.seger) {
-        if ([self.seger respondsToSelector:@selector(addSubview:)]) {
-            TTMenuSeg *se = self.seger;
-            [se addSubview:decrator];
-        }else {
-            NSLog(@"what happen");
-        }
+        [self.seger addDecorator:decrator];
     }
     [self.allDecorators addObject:decrator];
 }
+
+- (Class)itemViewClass {
+    return [TTMenuSegView class];
+}
+
+- (void)setLastFrame:(CGRect)lastFrame {
+    _lastFrame = lastFrame;
+    if (!_nextItem) {//如果是最后一个
+        CGFloat width = lastFrame.origin.x + lastFrame.size.width + self.inset.right;
+        [self.seger setContentWidth:width];
+    }
+}
+
 @end

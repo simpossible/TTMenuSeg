@@ -8,6 +8,7 @@
 
 #import "TTMenuSeg.h"
 #import "TTMenuSegView.h"
+#import <UIKit/UIKit.h>
 
 @interface TTMenuSeg()<TTMenuSegItemSeger>
 
@@ -25,21 +26,33 @@
 /**记录当前的偏移量*/
 @property (nonatomic, assign) CGFloat currentOff;
 
+/**所有的视图-用来作为重用逻辑*/
+@property (nonatomic, strong) NSDictionary * allViews;
+
+
+@property (nonatomic, strong) UIScrollView * scrollView;
+
+/**当前的seg*/
+@property (nonatomic, assign) TTMenuSegItem * currentItem;
+
 @end
 
 @implementation TTMenuSeg
 
 
-
 - (instancetype)initWithItems:(NSArray<TTMenuSegItem *> *)items {
-    if (self = [super init]) {
+    if (self = [self init]) {
         _shouldReciveScroll = YES;
-        _indicatorColor = [UIColor whiteColor];
+        _indicatorColor = [UIColor blackColor];
         _indicatorHeight = 4;
         _indicatorWidthMin = 12;
         _indicatorWidthMax = 24;
         _indeicatorCorner = 2;
         self.items = items;
+        self.scrollView = [[UIScrollView alloc] init];
+        self.scrollView.showsHorizontalScrollIndicator = NO;
+        self.scrollView.showsVerticalScrollIndicator = NO;
+        [self addSubView:self.scrollView];
     }
     return self;
 }
@@ -66,9 +79,9 @@
         item.preItem = preItem;
         preItem.nextItem = item;
         
-        TTMenuSegView *segView = [[TTMenuSegView alloc] init];
+        TTMenuSegView *segView = [self viewForItem:item];
         segView.segItem = item;
-        [self addSubview:segView];
+        [self.scrollView addSubview:segView];
         preItem = item;
     }
     TTMenuSegItem *item = [self.items firstObject];
@@ -76,9 +89,14 @@
     [item initialExpectOff:0];    
 }
 
+- (TTMenuSegView *)viewForItem:(TTMenuSegItem *)item {
+    Class cls = [item itemViewClass];
+    return [[cls alloc] init];
+}
+
 - (void)initialIndicatorView {
     self.indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorWidthMin, self.indicatorHeight)];
-    [self addSubview:self.indicatorView];
+    [self.scrollView addSubview:self.indicatorView];
     self.indicatorView.backgroundColor = self.indicatorColor;
     self.indicatorView.layer.cornerRadius = self.indeicatorCorner;
     self.indicatorView.layer.masksToBounds = YES;
@@ -93,12 +111,20 @@
 
 - (void)setOutOff:(CGFloat)off {
     if (off == _touchExpectOff) {
-        _shouldReciveScroll = YES;
+//        _shouldReciveScroll = YES;
     }
 //    if (_shouldReciveScroll) {
         _currentOff = off;
+    if (_currentItem) { //这里避免响应链调用太长
+        if (_currentItem.preItem) {
+            [_currentItem.preItem dealForOutOff:off];
+        }else {
+            [_currentItem dealForOutOff:off];
+        }
+    }else {
         TTMenuSegItem *item = [self.items firstObject];
         [item dealForOutOff:off];
+    }
 //    }
 }
 /*
@@ -111,9 +137,7 @@
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
-
-
-    
+    self.scrollView.frame = self.bounds;
     [self refreshSuperHeight];
 }
 
@@ -134,6 +158,7 @@
     CGRect indicatorFrame = self.indicatorView.frame;
     indicatorFrame.origin.y = self.bounds.size.height - self.indicatorHeight - self.indicatorBottomPadd;
     self.indicatorView.frame = indicatorFrame;
+    self.scrollView.frame = self.bounds;
     [self refreshSuperHeight];
 }
 
@@ -144,10 +169,26 @@
     }
     _shouldReciveScroll = NO;
     self.touchExpectOff = item.expectOutOff;
+    
+    if (item != _currentItem) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.currentItem reset:YES];
+            [self setOutOff:item.expectOutOff];
+        } completion:^(BOOL finished) {
+            self.shouldReciveScroll = YES;
+        }];
+       
+    }
+    self.currentItem = item;
     [self.delegate ttMenuSegItemSelected:item];
     
 //    [self.items.firstObject reload];
 }
+
+- (void)addSubView:(UIView *)view { 
+    [super addSubview:view];
+}
+
 
 + (instancetype)ttDefaultSegWithStrings:(NSArray<NSString *> *)items {
     NSMutableArray *segItems = [NSMutableArray array];
@@ -178,5 +219,41 @@
 
 - (void)addSubview:(UIView *)view {
     [super addSubview:view];
+}
+
+/**滚动的锚点*/
+- (CGFloat)segScrollAnchor {
+    return [self bounds].size.width / 2;
+}
+
+/** 内容滚动 */
+- (void)scrollOffX:(CGFloat)xOff {
+    
+    CGFloat scrollWidth = _scrollView.contentSize.width;
+    CGFloat segWidth = self.bounds.size.width;
+    
+    if (scrollWidth > segWidth) {
+        
+    }
+    CGFloat maxX = scrollWidth - segWidth;
+    if (xOff > maxX) {
+        [self.scrollView setContentOffset:(CGPointMake(maxX, 0))];
+        return;
+    }
+    [self.scrollView setContentOffset:(CGPointMake(xOff, 0))];
+}
+
+- (void)setContentWidth:(CGFloat)width {
+    self.scrollView.contentSize = CGSizeMake(width, self.bounds.size.height);
+    self.scrollView.scrollEnabled = width > self.bounds.size.width;
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    self.scrollView.backgroundColor = backgroundColor;
+}
+
+- (void)addDecorator:(TTMenuSegDecrator *)decorator {
+    [self.scrollView addSubview:decorator];
 }
 @end
