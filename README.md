@@ -4,8 +4,6 @@
 
 滑动渐变标题是目前UI经常使用的，TTMenuSeg 封装了进度逻辑，并可根据进度进行自定义渐变
 
-！！目前title滚动正在开发中，所以不适用与总长度超过seg大小的场景使用。
-
 ##### TTMenuSeg的基础使用
 ![](https://github.com/simpossible/TTMenuSeq/raw/master/doc/gif_menu.gif)
 
@@ -63,3 +61,9 @@ Code:
 效果如下:
 
 ![](https://github.com/simpossible/TTMenuSeq/raw/master/doc/menuseg_dec.gif)
+
+
+#release 0.0.1 更新
+支持长于头部的多个title场景滚动
+
+![](https://github.com/simpossible/TTMenuSeg/blob/master/doc/menguseg_scroll.gif)
