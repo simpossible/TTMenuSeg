@@ -17,6 +17,18 @@
 		266C6D8124BEE051008630BE /* TTMenuSegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8024BEE051008630BE /* TTMenuSegTests.m */; };
 		266C6D8C24BEE051008630BE /* TTMenuSegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 266C6D8B24BEE051008630BE /* TTMenuSegUITests.m */; };
 		26AD06A124C84F4700E220BE /* DecoratorTestControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD06A024C84F4700E220BE /* DecoratorTestControllerViewController.m */; };
+		26DC91C024D0112C0020C7CC /* TTMenuSegLabelDecrator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8AC24C80A6D0093A77E /* TTMenuSegLabelDecrator.h */; };
+		26DC91C124D0112C0020C7CC /* TTMenuSegDecrator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8AD24C80A6D0093A77E /* TTMenuSegDecrator.h */; };
+		26DC91C224D0112C0020C7CC /* TTMenuSegView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC89E24C80A020093A77E /* TTMenuSegView.h */; };
+		26DC91C324D0112C0020C7CC /* TTMenuSeg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC89A24C80A020093A77E /* TTMenuSeg.h */; };
+		26DC91C424D0112C0020C7CC /* TTMenuSegItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8A024C80A020093A77E /* TTMenuSegItem.h */; };
+		26DC91C524D0112C0020C7CC /* TTMenuSegHeader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26EEC8A324C80A020093A77E /* TTMenuSegHeader.h */; };
+		26DC91C624D0125F0020C7CC /* TTMenuSegDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AB24C80A6D0093A77E /* TTMenuSegDecrator.m */; };
+		26DC91C724D0125F0020C7CC /* TTMenuSegLabelDecrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8AE24C80A6D0093A77E /* TTMenuSegLabelDecrator.m */; };
+		26DC91C824D0125F0020C7CC /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
+		26DC91C924D0125F0020C7CC /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
+		26DC91CA24D0125F0020C7CC /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
+		26DC91CB24D0125F0020C7CC /* TTMenuSegLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC8A224C80A020093A77E /* TTMenuSegLabel.m */; };
 		26EEC8A424C80A020093A77E /* TTMenuSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89724C80A020093A77E /* TTMenuSegView.m */; };
 		26EEC8A624C80A020093A77E /* TTMenuSegItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89924C80A020093A77E /* TTMenuSegItem.m */; };
 		26EEC8A724C80A020093A77E /* TTMenuSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEC89F24C80A020093A77E /* TTMenuSeg.m */; };
@@ -44,8 +56,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		26DC91AF24D010F30020C7CC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include;
+			dstSubfolderSpec = 16;
+			files = (
+				26DC91C024D0112C0020C7CC /* TTMenuSegLabelDecrator.h in CopyFiles */,
+				26DC91C124D0112C0020C7CC /* TTMenuSegDecrator.h in CopyFiles */,
+				26DC91C224D0112C0020C7CC /* TTMenuSegView.h in CopyFiles */,
+				26DC91C324D0112C0020C7CC /* TTMenuSeg.h in CopyFiles */,
+				26DC91C424D0112C0020C7CC /* TTMenuSegItem.h in CopyFiles */,
+				26DC91C524D0112C0020C7CC /* TTMenuSegHeader.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		266C6D6124BEE04F008630BE /* TTMenuSeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTMenuSeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		266C6D6124BEE04F008630BE /* TTMenuSegApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTMenuSegApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266C6D6424BEE04F008630BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		266C6D6524BEE04F008630BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		266C6D6724BEE04F008630BE /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +95,7 @@
 		266C6D8D24BEE051008630BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26AD069F24C84F4700E220BE /* DecoratorTestControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecoratorTestControllerViewController.h; sourceTree = "<group>"; };
 		26AD06A024C84F4700E220BE /* DecoratorTestControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecoratorTestControllerViewController.m; sourceTree = "<group>"; };
+		26DC91B124D010F30020C7CC /* libTTMenuSeg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTTMenuSeg.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EEC89724C80A020093A77E /* TTMenuSegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegView.m; sourceTree = "<group>"; };
 		26EEC89924C80A020093A77E /* TTMenuSegItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMenuSegItem.m; sourceTree = "<group>"; };
 		26EEC89A24C80A020093A77E /* TTMenuSeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMenuSeg.h; sourceTree = "<group>"; };
@@ -106,6 +137,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26DC91AE24D010F30020C7CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,9 +160,10 @@
 		266C6D6224BEE04F008630BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				266C6D6124BEE04F008630BE /* TTMenuSeg.app */,
+				266C6D6124BEE04F008630BE /* TTMenuSegApp.app */,
 				266C6D7C24BEE051008630BE /* TTMenuSegTests.xctest */,
 				266C6D8724BEE051008630BE /* TTMenuSegUITests.xctest */,
+				26DC91B124D010F30020C7CC /* libTTMenuSeg.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,9 +250,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		266C6D6024BEE04F008630BE /* TTMenuSeg */ = {
+		266C6D6024BEE04F008630BE /* TTMenuSegApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 266C6D9024BEE051008630BE /* Build configuration list for PBXNativeTarget "TTMenuSeg" */;
+			buildConfigurationList = 266C6D9024BEE051008630BE /* Build configuration list for PBXNativeTarget "TTMenuSegApp" */;
 			buildPhases = (
 				266C6D5D24BEE04F008630BE /* Sources */,
 				266C6D5E24BEE04F008630BE /* Frameworks */,
@@ -223,9 +262,9 @@
 			);
 			dependencies = (
 			);
-			name = TTMenuSeg;
+			name = TTMenuSegApp;
 			productName = TTMenuSeg;
-			productReference = 266C6D6124BEE04F008630BE /* TTMenuSeg.app */;
+			productReference = 266C6D6124BEE04F008630BE /* TTMenuSegApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		266C6D7B24BEE051008630BE /* TTMenuSegTests */ = {
@@ -264,6 +303,23 @@
 			productReference = 266C6D8724BEE051008630BE /* TTMenuSegUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		26DC91B024D010F30020C7CC /* TTMenuSeg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26DC91B724D010F30020C7CC /* Build configuration list for PBXNativeTarget "TTMenuSeg" */;
+			buildPhases = (
+				26DC91AD24D010F30020C7CC /* Sources */,
+				26DC91AE24D010F30020C7CC /* Frameworks */,
+				26DC91AF24D010F30020C7CC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TTMenuSeg;
+			productName = TTMenuSeg;
+			productReference = 26DC91B124D010F30020C7CC /* libTTMenuSeg.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,6 +340,9 @@
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 266C6D6024BEE04F008630BE;
 					};
+					26DC91B024D010F30020C7CC = {
+						CreatedOnToolsVersion = 11.6;
+					};
 				};
 			};
 			buildConfigurationList = 266C6D5C24BEE04F008630BE /* Build configuration list for PBXProject "TTMenuSeg" */;
@@ -299,9 +358,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				266C6D6024BEE04F008630BE /* TTMenuSeg */,
+				266C6D6024BEE04F008630BE /* TTMenuSegApp */,
 				266C6D7B24BEE051008630BE /* TTMenuSegTests */,
 				266C6D8624BEE051008630BE /* TTMenuSegUITests */,
+				26DC91B024D010F30020C7CC /* TTMenuSeg */,
 			);
 		};
 /* End PBXProject section */
@@ -370,17 +430,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26DC91AD24D010F30020C7CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26DC91C624D0125F0020C7CC /* TTMenuSegDecrator.m in Sources */,
+				26DC91C724D0125F0020C7CC /* TTMenuSegLabelDecrator.m in Sources */,
+				26DC91C824D0125F0020C7CC /* TTMenuSegView.m in Sources */,
+				26DC91C924D0125F0020C7CC /* TTMenuSeg.m in Sources */,
+				26DC91CA24D0125F0020C7CC /* TTMenuSegItem.m in Sources */,
+				26DC91CB24D0125F0020C7CC /* TTMenuSegLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		266C6D7E24BEE051008630BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 266C6D6024BEE04F008630BE /* TTMenuSeg */;
+			target = 266C6D6024BEE04F008630BE /* TTMenuSegApp */;
 			targetProxy = 266C6D7D24BEE051008630BE /* PBXContainerItemProxy */;
 		};
 		266C6D8924BEE051008630BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 266C6D6024BEE04F008630BE /* TTMenuSeg */;
+			target = 266C6D6024BEE04F008630BE /* TTMenuSegApp */;
 			targetProxy = 266C6D8824BEE051008630BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -627,6 +700,34 @@
 			};
 			name = Release;
 		};
+		26DC91B824D010F30020C7CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MHZFCBBQ75;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
+			};
+			name = Debug;
+		};
+		26DC91B924D010F30020C7CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MHZFCBBQ75;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -639,7 +740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		266C6D9024BEE051008630BE /* Build configuration list for PBXNativeTarget "TTMenuSeg" */ = {
+		266C6D9024BEE051008630BE /* Build configuration list for PBXNativeTarget "TTMenuSegApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266C6D9124BEE051008630BE /* Debug */,
@@ -662,6 +763,15 @@
 			buildConfigurations = (
 				266C6D9724BEE051008630BE /* Debug */,
 				266C6D9824BEE051008630BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26DC91B724D010F30020C7CC /* Build configuration list for PBXNativeTarget "TTMenuSeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26DC91B824D010F30020C7CC /* Debug */,
+				26DC91B924D010F30020C7CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
