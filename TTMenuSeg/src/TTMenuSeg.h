@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithItems:(NSArray<TTMenuSegItem *> *)items;
 
+/**是否需要指示器*/
+@property (nonatomic, assign) BOOL needIndicator;
+
 /**指示器最大长度*/
 @property (nonatomic, assign) CGFloat indicatorWidthMax;
 
@@ -40,11 +43,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**指示器圆角*/
 @property (nonatomic, assign) CGFloat indeicatorCorner;
 
+/**内容的左右*/
+@property (nonatomic, assign) UIEdgeInsets inset;
+
 /**外部的滚动off*/
 - (void)setOutOff:(CGFloat)off;
 
+- (void)refreshItems:(NSArray *)items;
 
 + (instancetype)ttDefaultSegWithStrings:(NSArray<NSString *> *)items;
+
++ (NSArray<TTMenuSegItem *> *)ttDefaultItemsWithStrings:(NSArray<NSString *> *)items;
 
 - (TTMenuSegItem *)itemAtIndex:(NSInteger)i;
 

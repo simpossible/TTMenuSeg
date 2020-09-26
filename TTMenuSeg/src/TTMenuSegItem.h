@@ -12,15 +12,20 @@
 
 
 @class TTMenuSegItem;
+@class TTMenuSegView;
 @protocol TTMenuSegItemProtocol <NSObject>
 
 - (void)setFrame:(CGRect)frame;
 /**title 需要被放大缩小的背书*/
 - (void)setDegreeSize:(CGFloat)widthDegree height:(CGFloat)heightDegree;
 
+- (void)setDegree:(CGFloat)degree;
+
 - (void)setTitleColor:(UIColor *)color;
 
 - (void)refreshItem;
+
+- (void)removeFromSuperview;
 
 @end
 
@@ -92,9 +97,19 @@
 /**选中的时候的组件大小*/
 @property (nonatomic, assign) CGFloat selectFontSize;
 
+/**最终的选中时的大小*/
 @property (nonatomic, assign, readonly) CGSize selectedSize;
 
+/**最终的未选中时的大小*/
 @property (nonatomic, assign, readonly) CGSize defaultSize;
+
+/**不包含padding*/
+@property (nonatomic, assign, readonly) CGSize orgSelectedSize;
+
+/**不包含padding*/
+@property (nonatomic, assign, readonly) CGSize orgDefaultSize;
+
+@property (nonatomic, assign) UIEdgeInsets padding;
 
 - (void)setSelectedColor:(CGFloat)r g:(CGFloat)g b:(CGFloat)b a:(CGFloat)a;
 
@@ -138,4 +153,11 @@
 - (Class)itemViewClass;
 
 - (void)reset:(BOOL)forward;
+
+- (TTMenuSegView *)getSegView;
+
+/**必须是 TTMenuSegView 的子类*/
+- (void)registSegView:(Class)cls;
+
+- (void)clear;
 @end

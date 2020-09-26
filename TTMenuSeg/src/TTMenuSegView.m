@@ -54,7 +54,7 @@
     [super setFrame:frame];
     self.containerView.frame =self.bounds;
     
-    self.label.frame = CGRectMake(0, 0, self.segItem.selectedSize.width, self.segItem.selectedSize.height);
+    self.label.frame = CGRectMake(self.segItem.padding.left, self.segItem.padding.top, self.segItem.orgSelectedSize.width, self.segItem.orgSelectedSize.height);
     self.label.contentMode = UIViewContentModeScaleToFill;
 }
 
@@ -63,12 +63,13 @@
     self.label.transform = CGAffineTransformMakeScale(widthDegree, heightDegree);
 //    self.label.transform = CGAffineTransformMake(widthDegree, 0, 0, heightDegree, 0, 0);
     
-    self.label.frame = self.containerView.bounds;
+    self.label.frame = CGRectMake(_segItem.padding.left*widthDegree, _segItem.padding.top*heightDegree, _segItem.orgSelectedSize.width*widthDegree, _segItem.orgSelectedSize.height*heightDegree);
+    
 }
 
 - (void)setDegree:(CGFloat)degree {
     
-    self.containerView.transform = CGAffineTransformMakeScale(degree, degree);
+//    self.containerView.transform = CGAffineTransformMakeScale(degree, degree);
 }
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -77,6 +78,7 @@
     // Drawing code
 }
 */
+
 
 - (void)containerClicked:(id)sender {
     [self.segItem.seger ttMenuSegItemSelected:self.segItem];

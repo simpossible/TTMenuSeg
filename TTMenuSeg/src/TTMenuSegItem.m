@@ -16,7 +16,11 @@
 
 @property (nonatomic, assign) CGSize selectedSize;
 
+@property (nonatomic, assign) CGSize orgSelectedSize;
+
 @property (nonatomic, assign) CGSize defaultSize;
+
+@property (nonatomic, assign) CGSize orgDefaultSize;
 
 @property (nonatomic, assign) CGRect lastFrame;
 
@@ -43,6 +47,11 @@
 /**所有的装饰器*/
 @property (nonatomic, strong) NSMutableArray * allDecorators;
 
+@property (nonatomic) Class segCls;
+
+/**是否是同样的大小*/
+@property (nonatomic, assign) BOOL isSameSize;
+
 @end
 
 @implementation TTMenuSegItem
@@ -66,6 +75,7 @@
         _widthDegree = 1;
         _heightDegree = 1;
         [self genOffColor];
+        _isSameSize = NO;
     }
     return self;
 }
@@ -81,7 +91,7 @@
 
 /**是否强制刷新后面的*/
 - (void)layOutWithX:(CGFloat)x forceUpdate:(BOOL)force{
-
+    
     CGFloat startX = x;
     self.startX = x;
     
@@ -99,14 +109,15 @@
     startX = startX + self.inset.left;
     startX = startX + self.inset.right;
     
-    if (!CGRectEqualToRect(frame, self.lastFrame)) {
+    if (!CGRectEqualToRect(frame, self.lastFrame) || _isSameSize) {
         [self.delegate setFrame:frame];
         [self.delegate setDegreeSize:(_widthDegree + (_degree * (1-_widthDegree))) height:(_heightDegree + (_degree * (1-_heightDegree)))];
         self.lastFrame = frame;
         [self caculateDecorators];
-       
+        
         [self.nextItem layOutWithX:startX forceUpdate:force];
         [_delegate setTitleColor:[self currentColor]];
+        [_delegate setDegree:_degree];
     }else {
         if (force) {
             [self.nextItem layOutWithX:startX forceUpdate:force];
@@ -164,7 +175,7 @@
         CGFloat iMinWidth = [self.seger indicatorWidthMin];
         CGFloat iMaxWidth = [self.seger indicatorWidthMax];
         CGFloat iWidthOff = iMaxWidth - iMinWidth;
-                
+        
         CGFloat iWidthDegree = orgDegree > 0.5 ? _degree/0.5 : orgDegree / 0.5;
         CGFloat iWidth = iWidthOff * iWidthDegree + iMinWidth;//计算真正的指示器宽度
         
@@ -185,7 +196,7 @@
         [_nextItem.nextItem reset:YES];//将无关的item重置保证点击的正确性
         
         CGFloat scrollAnchor = [self.seger segScrollAnchor];//拿到滚动的锚点
-        if (iFrame.origin.x > scrollAnchor) {            
+        if (iFrame.origin.x > scrollAnchor) {
             [self.seger scrollOffX:(iFrame.origin.x - scrollAnchor)];
         }
         
@@ -201,10 +212,6 @@
             [self.seger setCurrentItem:nil];
         }
     }
-}
-
-- (void)caculateSegScroll {
-
 }
 
 - (UIColor *)currentColor {
@@ -234,12 +241,13 @@
     startX = startX + self.inset.left;
     startX = startX + self.inset.right;
     _nextItem.startX  = startX;
-    if (!CGRectEqualToRect(frame, self.lastFrame)) {
+    if (!CGRectEqualToRect(frame, self.lastFrame) || _isSameSize) {
         [self.delegate setFrame:frame];
         [self.delegate setDegreeSize:(_widthDegree + (_degree * (1-_widthDegree))) height:(_heightDegree + (_degree * (1-_heightDegree)))];
         self.lastFrame = frame;
         [self caculateDecorators];
         [_delegate setTitleColor:[self currentColor]];
+        [_delegate setDegree:_degree];
     }
     if (forward) {
         [_nextItem reset:YES];
@@ -260,6 +268,8 @@
                                            context:nil];
     
     self.selectedSize = rect.size;
+    self.orgSelectedSize = rect.size;
+    self.selectedSize = CGSizeMake(rect.size.width + _padding.left + _padding.right, rect.size.height + _padding.top + _padding.bottom);
     
     font = [UIFont fontWithName:self.fontName size:self.defaultFontSize];
     rect = [self.title boundingRectWithSize:CGSizeMake(1000,1000)
@@ -267,10 +277,17 @@
                                  attributes:@{ NSFontAttributeName:font }
                                     context:nil];
     self.defaultSize = rect.size;
+    self.orgDefaultSize = rect.size;
+    self.defaultSize = CGSizeMake(rect.size.width + _padding.left + _padding.right, rect.size.height + _padding.top + _padding.bottom);
     
-    _widthDegree = _defaultSize.width / _selectedSize.width;
-    _heightDegree = _defaultSize.height / _selectedSize.height;
-        
+    if (_selectedSize.width != 0) {
+        _widthDegree = _defaultSize.width / _selectedSize.width;
+    }
+    if (_selectedSize.height != 0) {
+        _heightDegree = _defaultSize.height / _selectedSize.height;
+    }
+    _isSameSize = CGSizeEqualToSize(_selectedSize, _defaultSize);
+    
 }
 
 - (BOOL)isOffMyDeal:(CGFloat)off {
@@ -313,7 +330,7 @@
     _sColor.r = r;
     _sColor.g = g;
     _sColor.b = b;
-    _sColor.b = a;
+    _sColor.a = a;
     [self genOffColor];
 }
 
@@ -321,7 +338,7 @@
     _dColor.r = r;
     _dColor.g = g;
     _dColor.b = b;
-    _dColor.b = a;
+    _dColor.a = a;
     [self genOffColor];
 }
 
@@ -334,13 +351,38 @@
 
 - (void)addDecrator:(TTMenuSegDecrator *)decrator {
     if (self.seger) {
-        [self.seger addDecorator:decrator];
+        if ([self.seger respondsToSelector:@selector(addSubview:)]) {
+            TTMenuSeg *se = self.seger;
+            [se addSubview:decrator];
+        }else {
+            NSLog(@"what happen");
+        }
     }
     [self.allDecorators addObject:decrator];
 }
 
+- (void)clear {
+    [self.delegate removeFromSuperview];
+}
+
+- (TTMenuSegView *)getSegView {
+    if (self.segCls) {
+        return [[self.segCls alloc] init];
+    }else {
+        return [[TTMenuSegView alloc] init];
+    }
+}
+
 - (Class)itemViewClass {
-    return [TTMenuSegView class];
+    if (self.segCls) {
+        return self.segCls;
+    }else {
+        return [TTMenuSegView class];
+    }
+}
+
+- (void)registSegView:(Class)cls {
+    self.segCls = cls;
 }
 
 - (void)setLastFrame:(CGRect)lastFrame {

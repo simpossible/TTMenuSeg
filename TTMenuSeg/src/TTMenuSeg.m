@@ -48,13 +48,44 @@
         _indicatorWidthMin = 12;
         _indicatorWidthMax = 24;
         _indeicatorCorner = 2;
+        _needIndicator = YES;
         self.items = items;
         self.scrollView = [[UIScrollView alloc] init];
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.showsVerticalScrollIndicator = NO;
+        _inset = UIEdgeInsetsMake(0, 16, 0, 0);
         [self addSubView:self.scrollView];
     }
     return self;
+}
+
+
+- (void)refreshItems:(NSArray *)items {
+    if (!self.items) {
+        self.items = items;
+    }else {
+        for (TTMenuSegItem *item in self.items) {
+            [item clear];
+        }
+        self.items = items;
+    }
+    
+    TTMenuSegItem *preItem = nil;
+    for (int i = 0; i < self.items.count; i ++) {
+        TTMenuSegItem *item =  [self.items objectAtIndex:i];
+        item.seger = self;
+        item.preItem = preItem;
+        preItem.nextItem = item;
+        
+        TTMenuSegView *segView = [self viewForItem:item];
+        segView.segItem = item;
+        [self.scrollView addSubview:segView];
+        preItem = item;
+    }
+    TTMenuSegItem *item = [self.items firstObject];
+    [item layOutWithX:_inset.left];
+    [item initialExpectOff:0];
+    [self refreshSuperHeight];
 }
 
 - (TTMenuSegItem *)itemAtIndex:(NSInteger)i {
@@ -72,21 +103,8 @@
 
 - (void)initialUI {
     [self initialIndicatorView];
-    TTMenuSegItem *preItem = nil;
-    for (int i = 0; i < self.items.count; i ++) {
-        TTMenuSegItem *item =  [self.items objectAtIndex:i];
-        item.seger = self;
-        item.preItem = preItem;
-        preItem.nextItem = item;
-        
-        TTMenuSegView *segView = [self viewForItem:item];
-        segView.segItem = item;
-        [self.scrollView addSubview:segView];
-        preItem = item;
-    }
-    TTMenuSegItem *item = [self.items firstObject];
-    [item layOutWithX:16];
-    [item initialExpectOff:0];    
+    
+    [self refreshItems:self.items];
 }
 
 - (TTMenuSegView *)viewForItem:(TTMenuSegItem *)item {
@@ -95,12 +113,13 @@
 }
 
 - (void)initialIndicatorView {
-    self.indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorWidthMin, self.indicatorHeight)];
-    [self.scrollView addSubview:self.indicatorView];
-    self.indicatorView.backgroundColor = self.indicatorColor;
-    self.indicatorView.layer.cornerRadius = self.indeicatorCorner;
-    self.indicatorView.layer.masksToBounds = YES;
-    
+    if (_needIndicator) {
+        self.indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorWidthMin, self.indicatorHeight)];
+        [self.scrollView addSubview:self.indicatorView];
+        self.indicatorView.backgroundColor = self.indicatorColor;
+        self.indicatorView.layer.cornerRadius = self.indeicatorCorner;
+        self.indicatorView.layer.masksToBounds = YES;
+    }
 }
 
 
@@ -189,8 +208,14 @@
     [super addSubview:view];
 }
 
-
 + (instancetype)ttDefaultSegWithStrings:(NSArray<NSString *> *)items {
+    
+    NSArray *segItems = [self ttDefaultItemsWithStrings:items];
+    TTMenuSeg *seg = [[TTMenuSeg alloc] initWithItems:segItems];
+    return seg;
+}
+
++ (NSArray *)ttDefaultItemsWithStrings:(NSArray<NSString *> *)items {
     NSMutableArray *segItems = [NSMutableArray array];
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     for (NSString *str in items) {
@@ -202,9 +227,7 @@
         item.outWidth = width;
         [segItems addObject:item];
     }
-    
-    TTMenuSeg *seg = [[TTMenuSeg alloc] initWithItems:segItems];
-    return seg;
+    return segItems;;
 }
 
 - (NSInteger)selectedIndex {
@@ -244,8 +267,9 @@
 }
 
 - (void)setContentWidth:(CGFloat)width {
-    self.scrollView.contentSize = CGSizeMake(width, self.bounds.size.height);
-    self.scrollView.scrollEnabled = width > self.bounds.size.width;
+    CGFloat scrollWidth = width + _inset.left + _inset.right;
+    self.scrollView.contentSize = CGSizeMake(scrollWidth, self.bounds.size.height);
+    self.scrollView.scrollEnabled = scrollWidth > self.bounds.size.width;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
