@@ -47,6 +47,8 @@
 /**滚动的锚点*/
 - (CGFloat)segScrollAnchor;
 
+- (CGFloat)currentScrollOff;
+
 /** 内容滚动 */
 - (void)scrollOffX:(CGFloat)xOff;
 

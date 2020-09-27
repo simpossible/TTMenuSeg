@@ -201,6 +201,7 @@
     self.currentItem = item;
     [self.delegate ttMenuSegItemSelected:item];
     
+    
 //    [self.items.firstObject reload];
 }
 
@@ -249,21 +250,25 @@
     return [self bounds].size.width / 2;
 }
 
+- (CGFloat)currentScrollOff {
+    return self.scrollView.contentOffset.x;
+}
+
 /** 内容滚动 */
 - (void)scrollOffX:(CGFloat)xOff {
     
     CGFloat scrollWidth = _scrollView.contentSize.width;
     CGFloat segWidth = self.bounds.size.width;
-    
-    if (scrollWidth > segWidth) {
-        
-    }
     CGFloat maxX = scrollWidth - segWidth;
     if (xOff > maxX) {
         [self.scrollView setContentOffset:(CGPointMake(maxX, 0))];
         return;
     }
-    [self.scrollView setContentOffset:(CGPointMake(xOff, 0))];
+    if (xOff == 0) {
+            [self.scrollView setContentOffset:(CGPointMake(0, 0)) animated:YES];
+    }else {
+        [self.scrollView setContentOffset:(CGPointMake(xOff, 0))];
+    }
 }
 
 - (void)setContentWidth:(CGFloat)width {

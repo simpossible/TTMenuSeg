@@ -198,6 +198,11 @@
         CGFloat scrollAnchor = [self.seger segScrollAnchor];//拿到滚动的锚点
         if (iFrame.origin.x > scrollAnchor) {
             [self.seger scrollOffX:(iFrame.origin.x - scrollAnchor)];
+        }else {
+            CGFloat currentX = [self.seger currentScrollOff];
+            if (currentX != 0) {
+                [self.seger scrollOffX:0];
+            }
         }
         
     }else {
