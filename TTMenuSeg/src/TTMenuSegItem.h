@@ -16,6 +16,8 @@
 @protocol TTMenuSegItemProtocol <NSObject>
 
 - (void)setFrame:(CGRect)frame;
+
+- (CGRect)frame;
 /**title 需要被放大缩小的背书*/
 - (void)setDegreeSize:(CGFloat)widthDegree height:(CGFloat)heightDegree;
 

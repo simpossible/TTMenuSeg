@@ -33,7 +33,7 @@
 @property (nonatomic, strong) UIScrollView * scrollView;
 
 /**当前的seg*/
-@property (nonatomic, assign) TTMenuSegItem * currentItem;
+@property (nonatomic, strong) TTMenuSegItem * currentItem;
 
 @end
 
@@ -61,6 +61,7 @@
 
 
 - (void)refreshItems:(NSArray *)items {
+    self.currentItem = nil;
     if (!self.items) {
         self.items = items;
     }else {
